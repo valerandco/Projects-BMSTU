@@ -1,4 +1,16 @@
 <script>
+
+  // import Router from "svelte-spa-router"
+  // import Esc from "./esc.svelte";
+  // import Home from "./Home.svelte";
+
+  // let routes = {
+  //   "/": Home,
+  //   "/esc": Esc,
+
+  // };
+
+
   let mainImageIndex = 0;
   let visiblePlatforms = [];
 
@@ -24,7 +36,7 @@
       position: {
         top: '35%',
         
-        classPos: '8k:pt-[500px] 8k:pl-[1px] 2k:pt-[200px] 2k:pl-[0px] xl:pt-[500px] xl:pl-[1px] lg:pt-[90px] lg:pl-[1px] md:pt-[90px] md:pl-1 sm:pt-[100px] sm:pl-[15px] xsm:pt-[150px] xsm:pl-[10px]',  
+        classPos: '8k:pt-[500px] 8k:pl-[1px] 2k:pt-[200px] 2k:pl-[0px] xl:pt-[100px] xl:pl-[1px] lg:pt-[90px] lg:pl-[1px] md:pt-[90px] md:pl-1 sm:pt-[100px] sm:pl-[15px] xsm:pt-[150px] xsm:pl-[10px]',  
       },
       logo: { image: "src/img/Logo/Warcraft 1 logo 1.png", position: { top: '10%' }, sizeClasses: "8k:w-[2224px] 8k:h-[890px] 4k:w-[1224px] 4k:h-[550px] 2k:w-[724px] 2k:h-[350px] xl:w-[490px] xl:h-[203px] lg:w-[490px] lg:h-[203px] sm:w-[490px] sm:h-[203px] xsm:w-[490px] xsm:h-[203px] xl:ml-[1px] lg:mt-[5px] lg:ml-[1px] md:mt-[20px] md:ml-[1px] sm:mt-[20px] sm:ml-[10px] xsm:mt-[20px] xsm:ml-[0px] " },
       platforms: [
@@ -38,7 +50,7 @@
       position: {
         top: '45%',
         left: '5%',
-        classPos: '8k:pt-[900px] 8k:pl-[1px] 2k:pt-[50px] 2k:pl-[1px] xl:pt-[100px] xl:pl-[1px] lg:pt-[40px] lg:pl-[1px] md:pt-[70px] md:pl-1 sm:pt-[90px] sm:pl-[15px] xsm:pt-[50px] xsm:pl-[40px]',  
+        classPos: '8k:pt-[900px] 8k:pl-[1px] 2k:pt-[50px] 2k:pl-[1px] xl:pt-[0px] xl:pl-[1px] lg:pt-[40px] lg:pl-[1px] md:pt-[70px] md:pl-1 sm:pt-[90px] sm:pl-[15px] xsm:pt-[50px] xsm:pl-[40px]',  
       },
       logo: { image: "src/img/Logo/Overwatch-Logo 1.png", position: { top: '5%', left: '5%' }, sizeClasses: "8k:w-[1680px] 8k:h-[980px] 4k:w-[1124px] 4k:h-[550px] 2k:w-[450px] 2k:h-[250px] w-[270px] h-[190px] 2k:mt-[100px] 2k:ml-[1px] xl:ml-[1px] lg:mt-[60px] lg:ml-[1px] md:mt-[90px] md:ml-[1px] sm:mt-[10px] sm:ml-[330px] xsm:mt-[80px] xsm:ml-[40px]" },
       platforms: [
@@ -105,7 +117,7 @@
     mainImageIndex = (mainImageIndex + 1) % carouselItems.length;
     resetVisiblePlatforms();
   }
-
+ 
   function prevImage() {
     mainImageIndex = (mainImageIndex - 1 + carouselItems.length) % carouselItems.length;
     resetVisiblePlatforms();
@@ -161,6 +173,10 @@
   }
 </style>
 
+<!-- <header title="Esc" class="w-full h-10">
+  <a href="#/esc"><button class="border p-2 mx-auto rounded-xl hover:bg-gray-50">1</button>
+</header> -->
+
 
 <div class="w-full h-50 bg-slate-700"></div>
 
@@ -188,14 +204,14 @@
             </div>
           {/if}
 
-          <div class="w-[37px] h-[67px] p-2.5 opacity-95 rounded-[20px] flex items-center justify-center whitespace-nowrap mb-1">
-            <div class="text-white text-[28px] 8k:text-[200px] 4k:text-[70px] font-normal font-['Inter'] leading-[23px] whitespace-nowrap 8k:mb-[420px] 4k:mb-[120px] 4k:pl-[100px]">Buy it for</div>
+          <div class="w-[37px] h-[67px] p-2.5 opacity-95 rounded-[20px] flex items-center justify-center whitespace-nowrap mb-1 ">
+            <div class="text-white text-[28px] 8k:text-[200px] 4k:text-[70px] font-normal font-['Inter'] leading-[23px] whitespace-nowrap 8k:mb-[420px] 4k:mb-[120px] 4k:pl-[100px] ">Buy it for</div>
 
             {#if visiblePlatforms.length > 0}
               {#each visiblePlatforms as platform (platform)}
-                <div class="w-11 h-[47px] flex-col justify-center items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[490px] 4k:ml-[110px] 4k:mb-[150px]">
-                  <div class="w-[47px] h-[47px] 8k:w-[300px] 8k:h-[300px] relative group 4k:w-[130px] 4k:h-[130px]">
-                    <img class="w-full h-full object-cover" src={`src/img/Platforms/${platform}.svg`} alt={platform} />
+                <div class="  w-11 h-[47px] flex-col justify-center items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[490px] 4k:ml-[110px] 4k:mb-[150px]">
+                  <div class=" w-[47px] h-[47px] 8k:w-[300px] 8k:h-[300px] relative group 4k:w-[130px] 4k:h-[130px]">
+                    <img class="w-full h-full object-fill" src={`src/img/Platforms/${platform}.svg`} alt={platform} />
                     <div class="text-center text-white text-opacity-0 text-xs 8k:text-[50px] 4k:text-[25px]  8k:mt-[30px] 4k:mt-[15px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out">{platform}</div>
                   </div>
                 </div>
@@ -205,6 +221,7 @@
                 tabindex="0"
                 class="w-11 h-[47px] flex-col justify-start items-center gap-2.5 inline-flex group ml-3 8k:ml-[290px] 8k:mb-[720px] 4k:ml-[110px] 4k:mb-[220px]"
                 on:click={resetVisiblePlatforms}
+                on:keydown={e => e.key === 'Enter' && goToSlide()}
               >
                 <div class="w-[47px] h-[47px] 8k:w-[300px] 8k:h-[300px] 4k:w-[130px] 4k:h-[130px] relative group ">
                   <img class="w-full h-full " src={`src/img/Arrows/Back.svg`} alt="Arrow Back" />
@@ -218,9 +235,10 @@
                   tabindex="0"
                   class="w-11 h-[47px] text-center flex-col justify-start items-center gap-2.5 inline-flex group ml-[20px] 8k:ml-[290px] 8k:mb-[720px] 4k:ml-[110px] 4k:mb-[220px]"
                   on:click={() => showAdditionalPlatforms(mainImageIndex, platform.main)}
+                  on:keydown={e => e.key === 'Enter' && goToSlide()}
                 >
                   <div class="w-[47px] h-[47px] 8k:w-[300px] 8k:h-[300px] 4k:w-[130px] 4k:h-[130px] relative group ">
-                    <img class="w-full h-full object-cover" src={`src/img/Platforms/${platform.main}.svg`} alt={platform.main} />
+                    <img class="w-full h-full object-fill" src={`src/img/Platforms/${platform.main}.svg`} alt={platform.main} />
                     <div class="text-center text-white text-opacity-0 text-xs 8k:text-[50px] 4k:text-[25px] font-light font-['Inter'] leading-[23px] group-hover:text-opacity-100 transition-opacity duration-300 ease-in-out 8k:mt-[30px]">{platform.main}</div>
                   </div>
                 </div>
