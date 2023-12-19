@@ -94,6 +94,17 @@
         { main: "Win", additional: ["Battle.net", "Epic Games Store", "gog.com","Steam","Humble Bundle"] },
       ],   
     },
+    { 
+      video: "GKXS_YA9s7E",
+      image: "", 
+      text: "", 
+      position: {
+        top: '15%',
+        
+        classPos: '8k:mt-1980px] 4k:pt-[780px] 2k:pt-[480px] xl:pt-[250px] xl:pl-[10px] lg:pt-[170px] lg:pl-[10px] md:pt-[90px] md:pl-[1px] sm:pt-[70px] sm:pl-[1px] xsm:pt-[30px] xsm:pl-[1px]',  
+      },
+      platforms: [],   
+    },
     
   ];
 
@@ -141,8 +152,8 @@
   .main-image {
     width: 100%;
     height: auto;
-    max-width: 100vw; /* Максимальная ширина вьюпорта */
-    max-height: 100vh; /* Максимальная высота вьюпорта */
+    max-width: 100vw; 
+    max-height: 100vh; 
   }
 
   .arrow-button {
@@ -174,8 +185,20 @@
 
 <div class="w-full bg-zinc-300">
   <div class="w-full h-full absolute">
-    <div class="w-full h-full absolute overflow-hidden">
-      <img class="main-image w-full object-fill" alt="" src={carouselItems[mainImageIndex].image} />
+    <div class="w-full h-full absolute">
+      {#if mainImageIndex === carouselItems.length - 1 && carouselItems[mainImageIndex].video}
+        <!-- Embed full-size YouTube video for the last slide -->
+        <iframe
+          title="video"
+          class="w-full h-full object-fill"
+          src={`https://www.youtube.com/embed/${carouselItems[mainImageIndex].video}?autoplay=1&controls=0&showinfo=0&autohide=1`}
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        ></iframe>
+      {:else}
+        <!-- Display image for other slides -->
+        <img class="main-image w-full object-fill" alt="" src={carouselItems[mainImageIndex].image} />
+      {/if}
     </div>
     <div class="w-full h-full absolute flex flex-col items-center justify-end">
       {#each carouselItems as { text, position, logo, platforms }, index (text)}
